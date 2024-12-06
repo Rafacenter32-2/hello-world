@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #Hello{
+            font-size: xxx-large;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+        //@ts-check
+        window.onload = function(){
+            const name = document.getElementById("name");
+            if (name instanceof HTMLTextAreaElement) {   
+                name.addEventListener("input", function(){
+                    const billboard = document.getElementById("greeting");
+                    if (billboard) {
+                        if (name.value == '') {
+                            billboard.innerHTML = "Hello World";
+                        } else {
+                            billboard.innerHTML = "Hello " + name.value;
+                        }
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="Hello">
+    <h1 id="greeting">Hello World</h1>
+    your name:
+    <textarea name="name" id="name" rows="1" cols="30" autofocus style="resize: none;transform: translateY(-50%) translateX(-10%);"></textarea>
+</div>
+</body>
+</html>
